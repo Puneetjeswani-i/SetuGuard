@@ -1,0 +1,104 @@
+# =====================================================================
+# APK corpora (malware + benign) — must never reach a public repo
+# =====================================================================
+*.apk
+banking_holdout_16/
+fdroid_benign_apks/
+cicmaldroid_banking/
+fdroid_benign/
+Banking.tar.gz
+
+# =====================================================================
+# Model weights / embeddings / vector indexes
+# =====================================================================
+*.bin
+*.gguf
+*.faiss
+*.index
+embeddings/
+# models/ is now tracked: it holds the precomputed PS2 artifact
+# (models/ps2_xgb_v1.json + metrics) that the live backend loads instead
+# of training in-request. See harness/train_ps2_model.py.
+
+# =====================================================================
+# Regenerable measurement / per-run output artifacts
+# =====================================================================
+setuguard_ps1/baseline/
+setuguard_ps1/baseline_v2/
+setuguard_ps1/baseline_v2_pinned/
+setuguard_ps1/baseline_v2_pinned_run.log
+setuguard_ps1/out/
+setuguard_ps1/fix3_fp_baseline/
+setuguard_ps1/fix3_fp_baseline_run.log
+setuguard_ps1/d2_ab_results/
+harness/measure_run.log
+# threshold_sweep.py / capped-scorer console output, already summarised in
+# SESSION_LOG.md. NOTE: harness/measure_run_holdout.log is deliberately NOT
+# ignored -- it is the console record of the run that produced
+# results_banking_holdout.csv (the void 16/16 figure) and is committed as
+# evidence alongside the corpus correction. See harness/CORPUS_PROVENANCE.md.
+harness/measure_run_capped.log
+harness/sweep_log.txt
+harness/sweep_output.txt
+harness/feature_cache/
+harness/banking_feature_cache/
+harness/extract_run*.log
+harness/process_large_outliers*.log
+harness/sample_set_716_normal.txt
+harness/sample_set_716_large.txt
+
+# =====================================================================
+# Unexplained top-level binary (6.5MB, identifies as PostScript, purpose
+# unknown — do not commit an unexplained binary; see CONTEXT.md)
+# =====================================================================
+/logging
+
+# =====================================================================
+# F-Droid/corpus scraping data artifacts — data, not source or docs
+# =====================================================================
+index-v2.json
+download_log.txt
+all_packages.txt
+package_ids.txt
+clean_package_ids.txt
+fdroid_urls.txt
+
+# =====================================================================
+# Python / environment / local caches
+# =====================================================================
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+.env
+*.cache
+
+# =====================================================================
+# Node (harness/browser_smoke.js's Playwright dependency) -- package.json
+# / package-lock.json are tracked, the installed tree is not.
+# =====================================================================
+node_modules/
+
+# =====================================================================
+# PS2 Datasets & Large Binary Files (>100MB)
+# =====================================================================
+*.csv
+!raw_graph_features.csv
+!harness/banking_packages.csv
+# banking_packages.csv was silently dropped by this blanket rule once already
+# (commit 610d945 claimed to add it and didn't -- fixed in ce705d0). Adding the
+# next two exceptions in advance rather than waiting to repeat that mistake a
+# third time when results_banking_legit.csv (B4) and the fixtures/ dry-run
+# files are committed.
+!harness/results_banking_legit.csv
+!harness/fixtures/*.csv
+!harness/banking_extract_skips.csv
+*.xlsx
+!data/Description.xlsx
+*.crdownload
+baseline_predictions.csv
+
+# personal Q&A prep, not project artifacts — must never be committed
+STUDY_GUIDE.md
+STUDY_GUIDE_GAPS.md
