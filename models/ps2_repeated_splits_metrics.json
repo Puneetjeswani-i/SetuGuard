@@ -1,0 +1,883 @@
+{
+  "headline": {
+    "what_this_is": "Median [IQR] across 20 independent stratified 80/20 holdouts (seeds 0-19), identical fixed hyperparameters, no tuning. This -- not any single seed's point estimate -- is the number to quote.",
+    "aucpr": "0.271 [0.221-0.362]",
+    "auroc": "0.872 [0.851-0.907]",
+    "recall_at_top_1pct": "25.0 [18.8-37.5]%",
+    "recall_at_top_5pct": "53.1 [43.8-62.5]%",
+    "precision_at_top_1pct": "22.2 [16.7-33.3]%",
+    "precision_at_top_5pct": "9.4 [7.7-11.0]%",
+    "lift_at_top_1pct": "25.2 [18.9-37.9]x",
+    "lift_at_top_5pct": "10.6 [8.7-12.5]x"
+  },
+  "n_seeds": 20,
+  "fixed_hyperparameters": {
+    "n_estimators": 200,
+    "max_depth": 4,
+    "learning_rate": 0.05,
+    "subsample": 0.8,
+    "colsample_bytree": 0.8,
+    "eval_metric": "aucpr",
+    "n_jobs": 1
+  },
+  "note": "No hyperparameter search was performed -- identical fixed hyperparameters on every seed; only the stratified 80/20 split's random_state (and the model's own random_state, tied to it) varies. seed=42 is train_ps2_model.py's hardcoded default, fixed before any of this evaluation ran, not chosen afterward because it scored well.",
+  "aucpr_distribution": {
+    "median": 0.2706209815373406,
+    "iqr_25": 0.2207556886344224,
+    "iqr_75": 0.36172339320480607,
+    "min": 0.09307017979933457,
+    "max": 0.6003217055135439,
+    "mean": 0.30678577162584214,
+    "std": 0.12763903674848415
+  },
+  "auroc_distribution": {
+    "median": 0.8718593836757357,
+    "iqr_25": 0.8509855635757912,
+    "iqr_75": 0.9067705441421432,
+    "min": 0.716129927817879,
+    "max": 0.9332662409772349,
+    "mean": 0.8680975846751806,
+    "std": 0.05388168583298021
+  },
+  "operational_curve_distributions": {
+    "top_1.0pct": {
+      "recall_pct_distribution": {
+        "median": 25.0,
+        "iqr_25": 18.8,
+        "iqr_75": 37.5,
+        "min": 6.2,
+        "max": 62.5,
+        "mean": 30.0,
+        "std": 14.052401929919313
+      },
+      "precision_pct_distribution": {
+        "median": 22.2,
+        "iqr_25": 16.7,
+        "iqr_75": 33.3,
+        "min": 5.6,
+        "max": 55.6,
+        "mean": 26.669999999999998,
+        "std": 12.491561151433396
+      },
+      "lift_x_distribution": {
+        "median": 25.24,
+        "iqr_25": 18.93,
+        "iqr_75": 37.85,
+        "min": 6.31,
+        "max": 63.09,
+        "mean": 30.284999999999997,
+        "std": 14.190171070145704
+      }
+    },
+    "top_5.0pct": {
+      "recall_pct_distribution": {
+        "median": 53.1,
+        "iqr_25": 43.8,
+        "iqr_75": 62.5,
+        "min": 12.5,
+        "max": 81.2,
+        "mean": 51.55500000000001,
+        "std": 14.50232653749046
+      },
+      "precision_pct_distribution": {
+        "median": 9.350000000000001,
+        "iqr_25": 7.7,
+        "iqr_75": 11.0,
+        "min": 2.2,
+        "max": 14.3,
+        "mean": 9.075,
+        "std": 2.5532087654557354
+      },
+      "lift_x_distribution": {
+        "median": 10.605,
+        "iqr_25": 8.74,
+        "iqr_75": 12.48,
+        "min": 2.5,
+        "max": 16.22,
+        "mean": 10.2955,
+        "std": 2.8954506989413584
+      }
+    }
+  },
+  "per_seed": [
+    {
+      "seed": 0,
+      "aucpr": 0.2558306554538663,
+      "auroc": 0.8497362576346474,
+      "class_counts": {
+        "train": {
+          "total": 7265,
+          "positive": 65
+        },
+        "holdout": {
+          "total": 1817,
+          "positive": 16
+        }
+      },
+      "operational_curve": [
+        {
+          "top_fraction_pct": 1.0,
+          "accounts_reviewed": 18,
+          "total_holdout_accounts": 1817,
+          "frauds_caught": 3,
+          "total_holdout_frauds": 16,
+          "recall_pct": 18.8,
+          "precision_pct": 16.7,
+          "lift_x": 18.93
+        },
+        {
+          "top_fraction_pct": 5.0,
+          "accounts_reviewed": 91,
+          "total_holdout_accounts": 1817,
+          "frauds_caught": 8,
+          "total_holdout_frauds": 16,
+          "recall_pct": 50.0,
+          "precision_pct": 8.8,
+          "lift_x": 9.98
+        }
+      ]
+    },
+    {
+      "seed": 1,
+      "aucpr": 0.5929445762841674,
+      "auroc": 0.9283384230982787,
+      "class_counts": {
+        "train": {
+          "total": 7265,
+          "positive": 65
+        },
+        "holdout": {
+          "total": 1817,
+          "positive": 16
+        }
+      },
+      "operational_curve": [
+        {
+          "top_fraction_pct": 1.0,
+          "accounts_reviewed": 18,
+          "total_holdout_accounts": 1817,
+          "frauds_caught": 9,
+          "total_holdout_frauds": 16,
+          "recall_pct": 56.2,
+          "precision_pct": 50.0,
+          "lift_x": 56.78
+        },
+        {
+          "top_fraction_pct": 5.0,
+          "accounts_reviewed": 91,
+          "total_holdout_accounts": 1817,
+          "frauds_caught": 10,
+          "total_holdout_frauds": 16,
+          "recall_pct": 62.5,
+          "precision_pct": 11.0,
+          "lift_x": 12.48
+        }
+      ]
+    },
+    {
+      "seed": 2,
+      "aucpr": 0.28138462021963256,
+      "auroc": 0.8387701277068296,
+      "class_counts": {
+        "train": {
+          "total": 7265,
+          "positive": 65
+        },
+        "holdout": {
+          "total": 1817,
+          "positive": 16
+        }
+      },
+      "operational_curve": [
+        {
+          "top_fraction_pct": 1.0,
+          "accounts_reviewed": 18,
+          "total_holdout_accounts": 1817,
+          "frauds_caught": 5,
+          "total_holdout_frauds": 16,
+          "recall_pct": 31.2,
+          "precision_pct": 27.8,
+          "lift_x": 31.55
+        },
+        {
+          "top_fraction_pct": 5.0,
+          "accounts_reviewed": 91,
+          "total_holdout_accounts": 1817,
+          "frauds_caught": 8,
+          "total_holdout_frauds": 16,
+          "recall_pct": 50.0,
+          "precision_pct": 8.8,
+          "lift_x": 9.98
+        }
+      ]
+    },
+    {
+      "seed": 3,
+      "aucpr": 0.2831121984947113,
+      "auroc": 0.8706274292059967,
+      "class_counts": {
+        "train": {
+          "total": 7265,
+          "positive": 65
+        },
+        "holdout": {
+          "total": 1817,
+          "positive": 16
+        }
+      },
+      "operational_curve": [
+        {
+          "top_fraction_pct": 1.0,
+          "accounts_reviewed": 18,
+          "total_holdout_accounts": 1817,
+          "frauds_caught": 4,
+          "total_holdout_frauds": 16,
+          "recall_pct": 25.0,
+          "precision_pct": 22.2,
+          "lift_x": 25.24
+        },
+        {
+          "top_fraction_pct": 5.0,
+          "accounts_reviewed": 91,
+          "total_holdout_accounts": 1817,
+          "frauds_caught": 7,
+          "total_holdout_frauds": 16,
+          "recall_pct": 43.8,
+          "precision_pct": 7.7,
+          "lift_x": 8.74
+        }
+      ]
+    },
+    {
+      "seed": 4,
+      "aucpr": 0.09307017979933457,
+      "auroc": 0.716129927817879,
+      "class_counts": {
+        "train": {
+          "total": 7265,
+          "positive": 65
+        },
+        "holdout": {
+          "total": 1817,
+          "positive": 16
+        }
+      },
+      "operational_curve": [
+        {
+          "top_fraction_pct": 1.0,
+          "accounts_reviewed": 18,
+          "total_holdout_accounts": 1817,
+          "frauds_caught": 1,
+          "total_holdout_frauds": 16,
+          "recall_pct": 6.2,
+          "precision_pct": 5.6,
+          "lift_x": 6.31
+        },
+        {
+          "top_fraction_pct": 5.0,
+          "accounts_reviewed": 91,
+          "total_holdout_accounts": 1817,
+          "frauds_caught": 2,
+          "total_holdout_frauds": 16,
+          "recall_pct": 12.5,
+          "precision_pct": 2.2,
+          "lift_x": 2.5
+        }
+      ]
+    },
+    {
+      "seed": 5,
+      "aucpr": 0.19029932279815748,
+      "auroc": 0.8514019988895059,
+      "class_counts": {
+        "train": {
+          "total": 7265,
+          "positive": 65
+        },
+        "holdout": {
+          "total": 1817,
+          "positive": 16
+        }
+      },
+      "operational_curve": [
+        {
+          "top_fraction_pct": 1.0,
+          "accounts_reviewed": 18,
+          "total_holdout_accounts": 1817,
+          "frauds_caught": 4,
+          "total_holdout_frauds": 16,
+          "recall_pct": 25.0,
+          "precision_pct": 22.2,
+          "lift_x": 25.24
+        },
+        {
+          "top_fraction_pct": 5.0,
+          "accounts_reviewed": 91,
+          "total_holdout_accounts": 1817,
+          "frauds_caught": 6,
+          "total_holdout_frauds": 16,
+          "recall_pct": 37.5,
+          "precision_pct": 6.6,
+          "lift_x": 7.49
+        }
+      ]
+    },
+    {
+      "seed": 6,
+      "aucpr": 0.26689943801368543,
+      "auroc": 0.9056426985008328,
+      "class_counts": {
+        "train": {
+          "total": 7265,
+          "positive": 65
+        },
+        "holdout": {
+          "total": 1817,
+          "positive": 16
+        }
+      },
+      "operational_curve": [
+        {
+          "top_fraction_pct": 1.0,
+          "accounts_reviewed": 18,
+          "total_holdout_accounts": 1817,
+          "frauds_caught": 3,
+          "total_holdout_frauds": 16,
+          "recall_pct": 18.8,
+          "precision_pct": 16.7,
+          "lift_x": 18.93
+        },
+        {
+          "top_fraction_pct": 5.0,
+          "accounts_reviewed": 91,
+          "total_holdout_accounts": 1817,
+          "frauds_caught": 9,
+          "total_holdout_frauds": 16,
+          "recall_pct": 56.2,
+          "precision_pct": 9.9,
+          "lift_x": 11.23
+        }
+      ]
+    },
+    {
+      "seed": 7,
+      "aucpr": 0.3938187044128518,
+      "auroc": 0.8723278734036646,
+      "class_counts": {
+        "train": {
+          "total": 7265,
+          "positive": 65
+        },
+        "holdout": {
+          "total": 1817,
+          "positive": 16
+        }
+      },
+      "operational_curve": [
+        {
+          "top_fraction_pct": 1.0,
+          "accounts_reviewed": 18,
+          "total_holdout_accounts": 1817,
+          "frauds_caught": 6,
+          "total_holdout_frauds": 16,
+          "recall_pct": 37.5,
+          "precision_pct": 33.3,
+          "lift_x": 37.85
+        },
+        {
+          "top_fraction_pct": 5.0,
+          "accounts_reviewed": 91,
+          "total_holdout_accounts": 1817,
+          "frauds_caught": 9,
+          "total_holdout_frauds": 16,
+          "recall_pct": 56.2,
+          "precision_pct": 9.9,
+          "lift_x": 11.23
+        }
+      ]
+    },
+    {
+      "seed": 8,
+      "aucpr": 0.19359768008505338,
+      "auroc": 0.8536576901721266,
+      "class_counts": {
+        "train": {
+          "total": 7265,
+          "positive": 65
+        },
+        "holdout": {
+          "total": 1817,
+          "positive": 16
+        }
+      },
+      "operational_curve": [
+        {
+          "top_fraction_pct": 1.0,
+          "accounts_reviewed": 18,
+          "total_holdout_accounts": 1817,
+          "frauds_caught": 2,
+          "total_holdout_frauds": 16,
+          "recall_pct": 12.5,
+          "precision_pct": 11.1,
+          "lift_x": 12.62
+        },
+        {
+          "top_fraction_pct": 5.0,
+          "accounts_reviewed": 91,
+          "total_holdout_accounts": 1817,
+          "frauds_caught": 8,
+          "total_holdout_frauds": 16,
+          "recall_pct": 50.0,
+          "precision_pct": 8.8,
+          "lift_x": 9.98
+        }
+      ]
+    },
+    {
+      "seed": 9,
+      "aucpr": 0.45959584128451286,
+      "auroc": 0.8711132704053304,
+      "class_counts": {
+        "train": {
+          "total": 7265,
+          "positive": 65
+        },
+        "holdout": {
+          "total": 1817,
+          "positive": 16
+        }
+      },
+      "operational_curve": [
+        {
+          "top_fraction_pct": 1.0,
+          "accounts_reviewed": 18,
+          "total_holdout_accounts": 1817,
+          "frauds_caught": 7,
+          "total_holdout_frauds": 16,
+          "recall_pct": 43.8,
+          "precision_pct": 38.9,
+          "lift_x": 44.16
+        },
+        {
+          "top_fraction_pct": 5.0,
+          "accounts_reviewed": 91,
+          "total_holdout_accounts": 1817,
+          "frauds_caught": 11,
+          "total_holdout_frauds": 16,
+          "recall_pct": 68.8,
+          "precision_pct": 12.1,
+          "lift_x": 13.73
+        }
+      ]
+    },
+    {
+      "seed": 10,
+      "aucpr": 0.27434252506099577,
+      "auroc": 0.9101540810660744,
+      "class_counts": {
+        "train": {
+          "total": 7265,
+          "positive": 65
+        },
+        "holdout": {
+          "total": 1817,
+          "positive": 16
+        }
+      },
+      "operational_curve": [
+        {
+          "top_fraction_pct": 1.0,
+          "accounts_reviewed": 18,
+          "total_holdout_accounts": 1817,
+          "frauds_caught": 4,
+          "total_holdout_frauds": 16,
+          "recall_pct": 25.0,
+          "precision_pct": 22.2,
+          "lift_x": 25.24
+        },
+        {
+          "top_fraction_pct": 5.0,
+          "accounts_reviewed": 91,
+          "total_holdout_accounts": 1817,
+          "frauds_caught": 10,
+          "total_holdout_frauds": 16,
+          "recall_pct": 62.5,
+          "precision_pct": 11.0,
+          "lift_x": 12.48
+        }
+      ]
+    },
+    {
+      "seed": 11,
+      "aucpr": 0.2640319845372421,
+      "auroc": 0.8713908939478068,
+      "class_counts": {
+        "train": {
+          "total": 7265,
+          "positive": 65
+        },
+        "holdout": {
+          "total": 1817,
+          "positive": 16
+        }
+      },
+      "operational_curve": [
+        {
+          "top_fraction_pct": 1.0,
+          "accounts_reviewed": 18,
+          "total_holdout_accounts": 1817,
+          "frauds_caught": 4,
+          "total_holdout_frauds": 16,
+          "recall_pct": 25.0,
+          "precision_pct": 22.2,
+          "lift_x": 25.24
+        },
+        {
+          "top_fraction_pct": 5.0,
+          "accounts_reviewed": 91,
+          "total_holdout_accounts": 1817,
+          "frauds_caught": 9,
+          "total_holdout_frauds": 16,
+          "recall_pct": 56.2,
+          "precision_pct": 9.9,
+          "lift_x": 11.23
+        }
+      ]
+    },
+    {
+      "seed": 12,
+      "aucpr": 0.32711637978812325,
+      "auroc": 0.9187604108828429,
+      "class_counts": {
+        "train": {
+          "total": 7265,
+          "positive": 65
+        },
+        "holdout": {
+          "total": 1817,
+          "positive": 16
+        }
+      },
+      "operational_curve": [
+        {
+          "top_fraction_pct": 1.0,
+          "accounts_reviewed": 18,
+          "total_holdout_accounts": 1817,
+          "frauds_caught": 5,
+          "total_holdout_frauds": 16,
+          "recall_pct": 31.2,
+          "precision_pct": 27.8,
+          "lift_x": 31.55
+        },
+        {
+          "top_fraction_pct": 5.0,
+          "accounts_reviewed": 91,
+          "total_holdout_accounts": 1817,
+          "frauds_caught": 10,
+          "total_holdout_frauds": 16,
+          "recall_pct": 62.5,
+          "precision_pct": 11.0,
+          "lift_x": 12.48
+        }
+      ]
+    },
+    {
+      "seed": 13,
+      "aucpr": 0.23732760381669182,
+      "auroc": 0.8867642976124376,
+      "class_counts": {
+        "train": {
+          "total": 7265,
+          "positive": 65
+        },
+        "holdout": {
+          "total": 1817,
+          "positive": 16
+        }
+      },
+      "operational_curve": [
+        {
+          "top_fraction_pct": 1.0,
+          "accounts_reviewed": 18,
+          "total_holdout_accounts": 1817,
+          "frauds_caught": 6,
+          "total_holdout_frauds": 16,
+          "recall_pct": 37.5,
+          "precision_pct": 33.3,
+          "lift_x": 37.85
+        },
+        {
+          "top_fraction_pct": 5.0,
+          "accounts_reviewed": 91,
+          "total_holdout_accounts": 1817,
+          "frauds_caught": 8,
+          "total_holdout_frauds": 16,
+          "recall_pct": 50.0,
+          "precision_pct": 8.8,
+          "lift_x": 9.98
+        }
+      ]
+    },
+    {
+      "seed": 14,
+      "aucpr": 0.6003217055135439,
+      "auroc": 0.9332662409772349,
+      "class_counts": {
+        "train": {
+          "total": 7265,
+          "positive": 65
+        },
+        "holdout": {
+          "total": 1817,
+          "positive": 16
+        }
+      },
+      "operational_curve": [
+        {
+          "top_fraction_pct": 1.0,
+          "accounts_reviewed": 18,
+          "total_holdout_accounts": 1817,
+          "frauds_caught": 10,
+          "total_holdout_frauds": 16,
+          "recall_pct": 62.5,
+          "precision_pct": 55.6,
+          "lift_x": 63.09
+        },
+        {
+          "top_fraction_pct": 5.0,
+          "accounts_reviewed": 91,
+          "total_holdout_accounts": 1817,
+          "frauds_caught": 13,
+          "total_holdout_frauds": 16,
+          "recall_pct": 81.2,
+          "precision_pct": 14.3,
+          "lift_x": 16.22
+        }
+      ]
+    },
+    {
+      "seed": 15,
+      "aucpr": 0.20472856551702345,
+      "auroc": 0.8805177679067184,
+      "class_counts": {
+        "train": {
+          "total": 7265,
+          "positive": 65
+        },
+        "holdout": {
+          "total": 1817,
+          "positive": 16
+        }
+      },
+      "operational_curve": [
+        {
+          "top_fraction_pct": 1.0,
+          "accounts_reviewed": 18,
+          "total_holdout_accounts": 1817,
+          "frauds_caught": 4,
+          "total_holdout_frauds": 16,
+          "recall_pct": 25.0,
+          "precision_pct": 22.2,
+          "lift_x": 25.24
+        },
+        {
+          "top_fraction_pct": 5.0,
+          "accounts_reviewed": 91,
+          "total_holdout_accounts": 1817,
+          "frauds_caught": 7,
+          "total_holdout_frauds": 16,
+          "recall_pct": 43.8,
+          "precision_pct": 7.7,
+          "lift_x": 8.74
+        }
+      ]
+    },
+    {
+      "seed": 16,
+      "aucpr": 0.22002332261811078,
+      "auroc": 0.7483342587451416,
+      "class_counts": {
+        "train": {
+          "total": 7265,
+          "positive": 65
+        },
+        "holdout": {
+          "total": 1817,
+          "positive": 16
+        }
+      },
+      "operational_curve": [
+        {
+          "top_fraction_pct": 1.0,
+          "accounts_reviewed": 18,
+          "total_holdout_accounts": 1817,
+          "frauds_caught": 3,
+          "total_holdout_frauds": 16,
+          "recall_pct": 18.8,
+          "precision_pct": 16.7,
+          "lift_x": 18.93
+        },
+        {
+          "top_fraction_pct": 5.0,
+          "accounts_reviewed": 91,
+          "total_holdout_accounts": 1817,
+          "frauds_caught": 6,
+          "total_holdout_frauds": 16,
+          "recall_pct": 37.5,
+          "precision_pct": 6.6,
+          "lift_x": 7.49
+        }
+      ]
+    },
+    {
+      "seed": 17,
+      "aucpr": 0.42524536204382113,
+      "auroc": 0.922994169905608,
+      "class_counts": {
+        "train": {
+          "total": 7265,
+          "positive": 65
+        },
+        "holdout": {
+          "total": 1817,
+          "positive": 16
+        }
+      },
+      "operational_curve": [
+        {
+          "top_fraction_pct": 1.0,
+          "accounts_reviewed": 18,
+          "total_holdout_accounts": 1817,
+          "frauds_caught": 8,
+          "total_holdout_frauds": 16,
+          "recall_pct": 50.0,
+          "precision_pct": 44.4,
+          "lift_x": 50.47
+        },
+        {
+          "top_fraction_pct": 5.0,
+          "accounts_reviewed": 91,
+          "total_holdout_accounts": 1817,
+          "frauds_caught": 9,
+          "total_holdout_frauds": 16,
+          "recall_pct": 56.2,
+          "precision_pct": 9.9,
+          "lift_x": 11.23
+        }
+      ]
+    },
+    {
+      "seed": 18,
+      "aucpr": 0.22099981063985963,
+      "auroc": 0.8364103275957802,
+      "class_counts": {
+        "train": {
+          "total": 7265,
+          "positive": 65
+        },
+        "holdout": {
+          "total": 1817,
+          "positive": 16
+        }
+      },
+      "operational_curve": [
+        {
+          "top_fraction_pct": 1.0,
+          "accounts_reviewed": 18,
+          "total_holdout_accounts": 1817,
+          "frauds_caught": 3,
+          "total_holdout_frauds": 16,
+          "recall_pct": 18.8,
+          "precision_pct": 16.7,
+          "lift_x": 18.93
+        },
+        {
+          "top_fraction_pct": 5.0,
+          "accounts_reviewed": 91,
+          "total_holdout_accounts": 1817,
+          "frauds_caught": 5,
+          "total_holdout_frauds": 16,
+          "recall_pct": 31.2,
+          "precision_pct": 5.5,
+          "lift_x": 6.24
+        }
+      ]
+    },
+    {
+      "seed": 19,
+      "aucpr": 0.3510249561354575,
+      "auroc": 0.8956135480288729,
+      "class_counts": {
+        "train": {
+          "total": 7265,
+          "positive": 65
+        },
+        "holdout": {
+          "total": 1817,
+          "positive": 16
+        }
+      },
+      "operational_curve": [
+        {
+          "top_fraction_pct": 1.0,
+          "accounts_reviewed": 18,
+          "total_holdout_accounts": 1817,
+          "frauds_caught": 5,
+          "total_holdout_frauds": 16,
+          "recall_pct": 31.2,
+          "precision_pct": 27.8,
+          "lift_x": 31.55
+        },
+        {
+          "top_fraction_pct": 5.0,
+          "accounts_reviewed": 91,
+          "total_holdout_accounts": 1817,
+          "frauds_caught": 10,
+          "total_holdout_frauds": 16,
+          "recall_pct": 62.5,
+          "precision_pct": 11.0,
+          "lift_x": 12.48
+        }
+      ]
+    }
+  ],
+  "seed_42_reference": {
+    "note": "train_ps2_model.py's default --seed is 42 -- this is what actually produced the already-published models/ps2_xgb_v1_metrics.json holdout numbers (aucpr=0.4114011947584679, auroc=0.9571765685730149). Included here, outside the requested seeds 0-19 range, and located by percentile in every distribution above rather than assumed to sit anywhere in particular.",
+    "aucpr": 0.4114011947584679,
+    "auroc": 0.9571765685730149,
+    "operational_curve": [
+      {
+        "top_fraction_pct": 1.0,
+        "accounts_reviewed": 18,
+        "total_holdout_accounts": 1817,
+        "frauds_caught": 5,
+        "total_holdout_frauds": 16,
+        "recall_pct": 31.2,
+        "precision_pct": 27.8,
+        "lift_x": 31.55
+      },
+      {
+        "top_fraction_pct": 5.0,
+        "accounts_reviewed": 91,
+        "total_holdout_accounts": 1817,
+        "frauds_caught": 11,
+        "total_holdout_frauds": 16,
+        "recall_pct": 68.8,
+        "precision_pct": 12.1,
+        "lift_x": 13.73
+      }
+    ],
+    "percentiles_within_seeds_0_19": {
+      "aucpr": 80.0,
+      "auroc": 100.0,
+      "top_1.0pct_recall": 55.0,
+      "top_1.0pct_precision": 55.0,
+      "top_1.0pct_lift": 55.0,
+      "top_5.0pct_recall": 90.0,
+      "top_5.0pct_precision": 90.0,
+      "top_5.0pct_lift": 90.0
+    }
+  },
+  "peak_rss_kb": 276192,
+  "wall_clock_seconds": 4.693
+}
